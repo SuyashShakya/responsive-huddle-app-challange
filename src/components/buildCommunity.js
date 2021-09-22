@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
 const BuildCommunity = () => {
     const classes = useStyles();
     const theme = useTheme();
-	const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+	const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     return (
         <Container maxWidth="lg">
             <Box display='flex' flexDirection='column'>
