@@ -9,6 +9,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden'
+import useTheme from '@material-ui/core/styles/useTheme';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import DesktopFooterTop from '../assets/bg-footer-top-desktop.svg';
 import MobileFooterTop from '../assets/bg-footer-top-mobile.svg';
 import HuddleLogo from '../assets/logo2.svg';
@@ -63,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
     buttonStyle: {
         borderRadius: 5,
         backgroundColor: 'hsl(322, 100%, 66%)',
+        '&:hover': {
+            backgroundColor: 'hsl(321, 100%, 78%)',
+        },
     },
     buttonText: {
         textTransform: 'none',
@@ -84,13 +89,17 @@ const useStyles = makeStyles((theme) => ({
 
 const ContactComponent = () => {
     const classes = useStyles();
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('lg'));
     return (
         <Grid item xs={12} md={6}>
             <Box className={classes.leftgridItem}>
                 <img src={HuddleLogo} alt='' className={classes.logo} />
-                <Typography variant='subtitle1'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nulla quam, hendrerit lacinia vestibulum a, ultrices quis sem.
-                </Typography>
+                <Box pr={!isSmallScreen ? 40 : 0}>
+                    <Typography variant='subtitle1'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nulla quam, hendrerit lacinia vestibulum a, ultrices quis sem.
+                    </Typography>
+                </Box>
                 <Box display='flex' flexDirection='row' alignItems='center' mt={3}>
                     <img src={PhoneIcon} alt='' height={18}/> &nbsp;&nbsp;&nbsp;
                     <Typography>
@@ -115,11 +124,13 @@ const ContactComponent = () => {
 
 const NewsLetterComponent = () => {
     const classes = useStyles();
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('lg'));
     return (
         <Grid item xs={12} md={6}>
             <Box className={classes.rightgridItem}>
                 <Typography variant='h6'>NEWSLETTER</Typography> 
-                <Box mt={3} mb={5}> 
+                <Box mt={3} mb={5} pr={!isSmallScreen ? 40 : 0}>  
                     <Typography variant='subtitle1'>
                         To recieve tips on how to grow your community, sign up to our weekly newsletter. We’ll never send you spam or pass on your email address
                     </Typography>

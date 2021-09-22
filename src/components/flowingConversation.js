@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     descriptionText: {
+        paddingRight: 200,
+        [theme.breakpoints.down('lg')]: {
+            paddingRight: 0,
+        },
         [theme.breakpoints.down('xs')]: {
             textAlign: 'center'
         },

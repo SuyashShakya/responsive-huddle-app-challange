@@ -11,7 +11,10 @@ const useStyles = makeStyles(() => ({
         width: 200,
         backgroundColor: 'hsl(322, 100%, 66%)',
         marginTop: 30,
-        marginBottom: 30
+        marginBottom: 30,
+        '&:hover': {
+            backgroundColor: 'hsl(321, 100%, 78%)',
+        },
     },
     buttonText: {
         textTransform: 'none',
